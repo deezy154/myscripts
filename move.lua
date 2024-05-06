@@ -293,6 +293,7 @@ end
 function checkcollis(colx,coly)
     if getInfo(world:getTile(colx, coly).fg).collision_type >= 1 and getInfo(world:getTile(colx, coly).fg).collision_type < 4 then
         return true
+    end
     if getInfo(world:getTile(colx,coly).fg).collision_type == 4 and world:hasAccess(colx,coly) > 0 and #bot:getPath(colx,coly) == 0 then
         return true
     end
