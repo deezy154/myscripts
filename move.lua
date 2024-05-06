@@ -455,7 +455,7 @@ function planty(worldke,idke,seedidke)
                             bot:findPath(tilex+2,tiley)
                         end
                         checkonline2(worldke,idke)
-                        while world:getTile(tilex+2, tiley + 1).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
+                        while world:getTile(tilex+2, tiley).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
                             if checkonline2(worldke,idke,tilex+2,tiley) then
                                 bot:place(tilex+2,tiley,seedidke)
                                 sleep(plant_delay)
@@ -620,7 +620,7 @@ function planty(worldke,idke,seedidke)
 
                 if tilex == 2 then
                     checkonline2(worldke,idke)
-                    if world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
+                    if world:getTile(tilex-2, tiley).fg == 0 and world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
                         checkonline2(worldke,idke)
                         if inventory:getItemCount(seedidke) < 1 then
                             return 
@@ -629,7 +629,7 @@ function planty(worldke,idke,seedidke)
                             bot:findPath(tilex-2,tiley)
                         end
                         checkonline2(worldke,idke)
-                        while world:getTile(tilex-2, tiley + 1).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
+                        while world:getTile(tilex-2, tiley ).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
                             if checkonline2(worldke,idke,tilex-2,tiley) then
                                 bot:place(tilex-2,tiley,seedidke)
                                 sleep(plant_delay)
@@ -811,7 +811,7 @@ function planty(worldke,idke,seedidke)
                                 bot:findPath(tilex+2,tiley)
                             end
                             checkonline2(worldke,idke)
-                            while world:getTile(tilex+2, tiley + 1).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
+                            while world:getTile(tilex+2, tiley ).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
                                 if checkonline2(worldke,idke,tilex+2,tiley) then
                                     bot:place(tilex+2,tiley,seedidke)
                                     sleep(plant_delay)
@@ -976,7 +976,7 @@ function planty(worldke,idke,seedidke)
 
                     if tilex == 2 then
                         checkonline2(worldke,idke)
-                        if world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
+                        if world:getTile(tilex-2, tiley ).fg == 0  and world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
                             checkonline2(worldke,idke)
                             if inventory:getItemCount(seedidke) < 1 then
                                 return 
@@ -985,7 +985,7 @@ function planty(worldke,idke,seedidke)
                                 bot:findPath(tilex-2,tiley)
                             end
                             checkonline2(worldke,idke)
-                            while world:getTile(tilex-2, tiley + 1).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
+                            while world:getTile(tilex-2, tiley).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
                                 if checkonline2(worldke,idke,tilex-2,tiley) then
                                     bot:place(tilex-2,tiley,seedidke)
                                     sleep(plant_delay)
@@ -1166,7 +1166,7 @@ function planty(worldke,idke,seedidke)
                                 bot:findPath(tilex+2,tiley)
                             end
                             checkonline2(worldke,idke)
-                            while world:getTile(tilex+2, tiley + 1).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
+                            while world:getTile(tilex+2, tiley ).fg == 0  and  world:hasAccess(tilex+2,tiley) > 0 do
                                 if checkonline2(worldke,idke,tilex+2,tiley) then
                                     bot:place(tilex+2,tiley,seedidke)
                                     sleep(plant_delay)
@@ -1331,7 +1331,7 @@ function planty(worldke,idke,seedidke)
 
                     if tilex == 2 then
                         checkonline2(worldke,idke)
-                        if world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
+                        if world:getTile(tilex-2, tiley ).fg == 0 and  world:getTile(tilex-2, tiley + 1).fg ~= 0 and (#bot:getPath(tilex-2,tiley) > 0 or bot:isInTile(tilex-2,tiley)) and world:getTile(tilex-2,tiley+1).fg % 2 == 0 and not contains(dont_plant_over,world:getTile(tilex-2,tiley+1).fg) and getInfo(world:getTile(tilex-2, tiley + 1).fg).collision_type >= 1 then
                             checkonline2(worldke,idke)
                             if inventory:getItemCount(seedidke) < 1 then
                                 return 
@@ -1340,7 +1340,7 @@ function planty(worldke,idke,seedidke)
                                 bot:findPath(tilex-2,tiley)
                             end
                             checkonline2(worldke,idke)
-                            while world:getTile(tilex-2, tiley + 1).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
+                            while world:getTile(tilex-2, tiley ).fg == 0  and  world:hasAccess(tilex-2,tiley) > 0 do
                                 if checkonline2(worldke,idke,tilex-2,tiley) then
                                     bot:place(tilex-2,tiley,seedidke)
                                     sleep(plant_delay)
