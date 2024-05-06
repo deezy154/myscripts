@@ -144,8 +144,8 @@ end
 function getfloatingscount(idz,worldismisi)
     float = 0
     for i, obj in pairs(world:getObjects()) do
-        objxxx = math.flor(obj.x/32)
-        objyyy = math.flor(obj.y/32)
+        objxxx = math.floor(obj.x/32)
+        objyyy = math.floor(obj.y/32)
         if obj.id == idz and (#bot:getPath(objxxx,objyyy) > 0 or bot:isInTile(objxxx,objyyy)) then
             float = float + obj.count
         end
