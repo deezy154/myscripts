@@ -7,7 +7,7 @@ function checkbanned()
     
     while true do
         if file_exists("bannedplant.txt") then
-              limk = "https://raw.githubusercontent.com/deezy154/myscripts/main/move.lua"
+              limk = "https://raw.githubusercontent.com/deezy154/myscripts/main/main.lua"
               client = HttpClient.new()
               client.url = limk
               local script1 = client:request().body
