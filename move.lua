@@ -141,6 +141,18 @@ function checkfloat(idz,worldismisi,worldidsi)
     return false
 end
 
+function getfloatingscount(idz,worldismisi)
+    float = 0
+    for i, obj in pairs(world:getObjects()) do
+        objxxx = math.flor(obj.x/32)
+        objyyy = math.flor(obj.y/32)
+        if obj.id == idz and (#bot:getPath(objxxx,objyyy) > 0 or bot:isInTile(objxxx,objyyy)) then
+            float = float + obj.count
+        end
+    end
+    return {floatcount = float}
+end
+
 function gettotal(idz,worldismisi)
     checkonline(worldismisi)
     count = 0
@@ -1415,7 +1427,8 @@ function main()
         depoworld = fo[4]
         depoworldid = fo[5]
         if join(depoworld,depoworldid) then
-            if not checkfloat(seedid,depoworld,depoworldid) then
+            seedvarmi = checkfloat(seedid,depoworld,depoworldid)
+            if not seedvarmi  then
                 LogTheName("","cantfindseedsplant.txt")
                 os.remove("movebotplant.txt")
                 while file_exists("cantfindseedsplant.txt") do
@@ -1427,6 +1440,9 @@ function main()
                     totalsleep = totalsleep + 1
                 end
                 totalsleep = 0                
+            elseif seedvarmi then
+                seedcount = getfloatingscount(seedid,depoworld).floatcount
+                LogTheName(tostring(seedcount),"seedcountplant.txt")
             end      
         else
             if file_exists("bannedplant.txt") then
