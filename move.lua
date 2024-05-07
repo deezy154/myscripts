@@ -1456,7 +1456,8 @@ function main()
                     sleep(1000)
                     totalsleep = totalsleep + 1
                 end
-                totalsleep = 0                
+                totalsleep = 0 
+                goto endis               
             elseif seedvarmi then
                 seedcount = getfloatingscount(seedid,depoworld).floatcount
                 LogTheName(tostring(seedcount),"seedcountplant.txt")
