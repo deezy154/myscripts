@@ -34,7 +34,7 @@ function join(worldname,worldid)
     worldid = worldid or nil
     checkonline()
     tempnumber = 0
-    if not bot:isInWorld(worldname) or not world:getLocal() then
+    if not bot:isInWorld(worldname) then
         sleep(2500)
         if worldid ~= nil then
             if bot:isInWorld() then
@@ -233,8 +233,8 @@ function checkonline2(worldname,worldid,spacex,spacey)
         end
         sleep(35000)
     end
-    if not bot:isInWorld(worldname) or not world:getLocal() or world:getTile(bot.x,bot.y).fg == 6 then
-        while not bot:isInWorld(worldname) or not world:getLocal() or world:getTile(bot.x,bot.y).fg == 6 do
+    if not bot:isInWorld(worldname) or world:getTile(bot.x,bot.y).fg == 6 then
+        while not bot:isInWorld(worldname) or world:getTile(bot.x,bot.y).fg == 6 do
             if not join(worldname,worldid) then return false end
         end
     end
@@ -1512,7 +1512,7 @@ function main()
                 worldbitti = false
                 ::checkagain::
                 while checkfloat(seedid,depoworld,depoworldid) and not worldbitti do
-                    checkonline2(depoworld,depoid)
+                    checkonline2(depoworld,depoworldid)
                     if takefloats(depoworld,depoworldid,seedid) then
                         checkonline2(farmworld,farmworldid)
                         planty(farmworld,farmworldid,seedid)
