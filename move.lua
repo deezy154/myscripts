@@ -206,18 +206,40 @@ function dropleftovers(worldname,worldid,seedid)
         end
         bot:setDirection(false)
         while inventory:getItemCount(seedid) > 0 do
-            bot:drop(seedid,inventory:getItemCount(seedid))
-            sleep(3000)
-            checkonline(worldname)
+            checkonline2(worldname,worldid)
+            if bot.x >=99 then
+                bot:setDirection(true)
+                sleep(1000)
+                bot:drop(seedid,inventory:getItemCount(seedid))
+                sleep(3000)
+            elseif bot.x <= 0 then
+                bot:setDirection(false)
+                sleep(1000)
+                bot:drop(seedid,inventory:getItemCount(seedid))
+                sleep(3000)
+            else
+                bot:setDirection(false)
+                sleep(1000)
+                bot:drop(seedid,inventory:getItemCount(seedid))
+                sleep(3000)
+            end
+            
             while world:getTile(bot.x,bot.y).fg == 6 do
                 checkonline(worldname)
                 bot:warp(worldname,worldid)
                 sleep(3500)
             end           
             if inventory:getItemCount(seedid) > 0 then
-                bot:moveUp()
-                sleep(1000)
-                bot:setDirection(false)
+                if #bot:getPath(bot.x,bot.y-1) > 0 then
+                    bot:moveUp()
+                    sleep(1000)                
+                elseif #bot:getPath(bot.x-1,bot.y) > 0 then
+                    bot:moveLeft()
+                    sleep(1000)
+                elseif #bot:getPath(bot.x+1,bot.y) > 0 then
+                    bot:moveRight()
+                    sleep(1000)
+                end
             end
         end
     end
